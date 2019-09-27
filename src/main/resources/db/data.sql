@@ -6,5 +6,5 @@ INSERT INTO `user` (id, username, password, role) VALUES ('5', 'user3', '1234', 
 INSERT INTO `user` (id, username, password, role) VALUES ('6', 'user4', '1234', 'user');
 INSERT INTO `student` (id, username, password, email,phone) VALUES ('1', 'user1', '1234', '1065774387@qq.com','17671657141');
 INSERT INTO `student` (id, username, password, email,phone) VALUES ('2', 'user2', '1234', '1501722945@qq.com','17340542259');
-INSERT INTO `student` (id, username, password, email,phone) VALUES ('3', 'user3', '1234');
+INSERT INTO `student` (id, username, password, email,phone) VALUES ('3', 'user3', '1234',null,null);
 COMMIT;
