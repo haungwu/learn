@@ -13,7 +13,7 @@ public class StudentService {
     @Autowired
     private StudentDao StudentDao;
 
-    public Student getStudent(Long id) {
+    public Student getUser(Long id) {
         return StudentDao.findById(id).get();
     }
 }

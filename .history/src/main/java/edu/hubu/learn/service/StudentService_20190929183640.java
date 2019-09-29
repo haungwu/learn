@@ -5,15 +5,15 @@ import org.springframework.stereotype.Service;
 
 import edu.hubu.learn.dao.StudentDao;
 
-import edu.hubu.learn.entity.Student;
+import edu.hubu.learn.entity.User;
 
 @Service
 public class StudentService {
 
     @Autowired
-    private StudentDao StudentDao;
+    private StudentDao studentDao;
 
-    public Student getStudent(Long id) {
-        return StudentDao.findById(id).get();
+    public User getUser(Long id) {
+        return studentDao.findById(id).get();
     }
 }
