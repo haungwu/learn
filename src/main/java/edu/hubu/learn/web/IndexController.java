@@ -15,11 +15,7 @@ import edu.hubu.learn.service.StudentService;
 @RequestMapping("/")
 public class IndexController {
 
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private StudentService StudentService; 
-
+    
     @RequestMapping("/")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView();
@@ -27,20 +23,5 @@ public class IndexController {
         return mav;
     }
 
-    @RequestMapping("/user")
-    public ModelAndView user() {
-        ModelAndView mav = new ModelAndView();
-        User user = userService.getUser(1l);
-        mav.addObject("user", user);
-        mav.setViewName("user");
-        return mav;
-    }
-    @RequestMapping("/student/{id}")
-    public ModelAndView getStudent(@PathVariable Long id) {
-        ModelAndView mav = new ModelAndView();
-        Student student = StudentService.getStudent(id);
-        mav.addObject("student", student);
-        mav.setViewName("student");
-        return mav;
-    }
+   
 }
