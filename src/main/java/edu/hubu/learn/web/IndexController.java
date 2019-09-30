@@ -2,6 +2,7 @@ package edu.hubu.learn.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,10 +35,10 @@ public class IndexController {
         mav.setViewName("user");
         return mav;
     }
-    @RequestMapping("/student")
-    public ModelAndView student() {
+    @RequestMapping("/student/{id}")
+    public ModelAndView getStudent(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView();
-        Student student = StudentService.getStudent(1L);
+        Student student = StudentService.getStudent(id);
         mav.addObject("student", student);
         mav.setViewName("student");
         return mav;
