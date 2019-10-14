@@ -16,15 +16,15 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) DEFAULT NULL comment '用户名',
+  `studentname` varchar(50) DEFAULT NULL comment '用户名',
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `phone` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
-ALTER TABLE `user` ADD UNIQUE (`username`);
-ALTER TABLE `user` ADD UNIQUE (`email`);
-ALTER TABLE `user` ADD UNIQUE (`phone`);
-ALTER TABLE `student` ADD UNIQUE (`username`);
+ALTER TABLE `student` ADD UNIQUE (`studentname`);
+ALTER TABLE `student` ADD UNIQUE (`email`);
+ALTER TABLE `student` ADD UNIQUE (`phone`);
+ALTER TABLE `student` ADD UNIQUE (`studentname`);
 ALTER TABLE `student` ADD UNIQUE (`email`);
 ALTER TABLE `student` ADD UNIQUE (`phone`);
