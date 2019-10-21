@@ -20,11 +20,12 @@ CREATE TABLE `student` (
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `phone` varchar(50) DEFAULT NULL,
+   `register_date` timestamp DEFAULT CURRENT_TIMESTAMP,
+  `enabled` tinyint(1) DEFAULT 1,
+  
+`avatar_url` varchar(200) DEFAULT '' comment '头像',
   PRIMARY KEY (`id`)
 );
-ALTER TABLE `student` ADD UNIQUE (`studentname`);
-ALTER TABLE `student` ADD UNIQUE (`email`);
-ALTER TABLE `student` ADD UNIQUE (`phone`);
 ALTER TABLE `student` ADD UNIQUE (`studentname`);
 ALTER TABLE `student` ADD UNIQUE (`email`);
 ALTER TABLE `student` ADD UNIQUE (`phone`);

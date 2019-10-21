@@ -17,5 +17,7 @@ public class Student {
     private String password;
     private String email;
     private String phone;
+    @Column(name="avatar_url")
+    private String avatar;
   
 }

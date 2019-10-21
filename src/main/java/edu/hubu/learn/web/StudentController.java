@@ -57,12 +57,13 @@ public class StudentController {
 
     @RequestMapping("/do_add")
     public ModelAndView doAddStudent(Student student) {
-       
+        student.setAvatar("");
+        
         studentService.addStudent(student);
         ModelAndView mav = new ModelAndView("redirect:/student/list");
         return mav;
     }
-
+    
     @RequestMapping("/modify/{id}")
     public ModelAndView modifyStudent(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView();
@@ -73,7 +74,7 @@ public class StudentController {
 
     @RequestMapping("/do_modify")
     public ModelAndView doModifyStudent(Student student) {
-        
+        student.setAvatar("");
         studentService.modifyStudent(student);
         ModelAndView mav = new ModelAndView("redirect:/student/list");
         return mav;
@@ -103,5 +104,21 @@ public class StudentController {
         mav.setViewName("student_add_avatar");
         return mav;
     }
+    @RequestMapping("/do_add_avatar/{id}")
+    public ModelAndView doAddStudentAvatar(@RequestParam("avatar") MultipartFile file, @PathVariable Long id) {
+        try {
+            String fileName = file.getOriginalFilename();
+            String filePath = ResourceUtils.getURL("classpath:").getPath() + "../../../resources/main/static/";
+            File dest = new File(filePath + fileName);
+            log.info(dest.getAbsolutePath());
+            file.transferTo(dest);
+            Student student = studentService.getStudent(id);
+            student.setAvatar(fileName);
+            studentService.modifyStudent(student);
+        } catch (Exception e) {
+            log.error("upload avatar error", e.getMessage());
+        }
+        return new ModelAndView("redirect:/student/list");
+}
 
 }

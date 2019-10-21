@@ -22,27 +22,19 @@
     <div class="row">
       <div class="col-md-4">
         <ul class="nav nav-pills nav-stacked">
-          <li role="presentation" class="active"><a href="/student/list">列表</a></li>
-          <li role="presentation"><a href="/student/add">新增</a></li>
+          <li role="presentation"><a href="/student/list">列表</a></li>
+          <li role="presentation" class="active"><a href="/student/add">新增</a></li>
           <li role="presentation"><a href="/student/search">搜索</a></li>
         </ul>
       </div>
       <div class="col-md-8">      
-        <table class="table table-hover">
-          <thead>
-          <th>ID</th><th>名称</th><th>密码</th><th>头像</th><th>删除</th><th>修改</th><th>头像</th>
-          </thead>
-          <tbody>
-          <#list students as student>
-          <tr>
-          <td>${student.id}</td><td>${student.studentname}</td><td>${student.password}</td><td>${student.avatar}</td>
-          <td><a href="/student/delete/${student.id}">删除</a></td>
-          <td><a href="/student/modify/${student.id}">修改</a></td>
-          <td><a href="/student/add_avatar/${student.id}">上传</a></td>
-          </tr>
-          </#list>
-          </tbody>
-        </table>
+        <form action="/student/do_add_avatar/${student.id}" enctype="multipart/form-data" method="post">
+            <div class="form-group">
+                <label for="avatar">头像图片</label>
+                <input type="file" class="form-control" id="avatar" name="avatar" placeholder="请选择图片">
+            </div>
+            <button type="submit" class="btn btn-default">确认</button>
+        </form>
       </div>
     </div>
   </div>
