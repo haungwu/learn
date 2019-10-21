@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
-
+   
 @Controller
 @RequestMapping("/")
 public class IndexController {
@@ -17,7 +17,7 @@ public class IndexController {
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("index");
-        return mav;
+          return mav;
     }
 
    
